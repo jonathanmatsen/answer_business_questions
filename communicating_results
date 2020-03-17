@@ -1,0 +1,34 @@
+import pandas as pd
+
+playstore = pd.read_csv("googleplaystore.csv")
+print(playstore.shape)
+
+answer = "no"
+
+playstore.drop(labels=10472, inplace=True)
+
+def clean_size(size):
+    """Convert file size string to float and megabytes"""
+    size = size.replace("M","")
+    if size.endswith("k"):
+        size = float(size[:-1])/1000
+    elif size == "Varies with device":
+        size = pd.np.NaN
+    else:
+        size = float(size)
+    return size
+
+paid.drop(columns='Type', inplace=True)
+
+paid['Reviews'] = paid['Reviews'].astype(int)
+
+paid['Size'] = paid['Size'].apply(clean_size).astype(float)
+paid.info()
+
+paid.sort_values('Reviews', ascending=False, inplace=True)
+
+paid.drop_duplicates(subset='App', keep='first', inplace=True)
+
+print(paid.duplicated('App').sum())
+
+paid.reset_index(inplace=True, drop=True)
