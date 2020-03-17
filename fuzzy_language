@@ -1,0 +1,7 @@
+best_churn['scaled_tran'] = (best_churn['nr_of_transactions'] - best_churn['nr_of_transactions'].min()) / (best_churn['nr_of_transactions'].max() - best_churn['nr_of_transactions'].min())
+
+best_churn['scaled_amount'] = (best_churn['amount_spent'] - best_churn['amount_spent'].min()) / (best_churn['amount_spent'].max() - best_churn['amount_spent'].min())
+
+best_churn['score'] = 100*(0.5*best_churn['scaled_tran'] + 0.5*best_churn['scaled_amount'])
+
+best_churn.sort_values("score", inplace=True, ascending=False)
