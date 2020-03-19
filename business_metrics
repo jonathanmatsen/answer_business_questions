@@ -1,0 +1,10 @@
+# Net Promoter Score
+
+def categorize(score):
+    if score <= 6:
+        return "Detractor"
+    elif score > 6 and score < 9:
+        return "Passive"
+    elif score >= 9:
+        return "Promoter"
+    return None
